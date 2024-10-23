@@ -21,7 +21,7 @@ void	check_walls(char **map, t_data *cub)
 {
 	int		y_len;
 	int		x_len;
-	int		y;
+	// int		y = 0;
 	int		x;
 
 	x = skip_char(map[0], ' ');
@@ -32,6 +32,7 @@ void	check_walls(char **map, t_data *cub)
 		x++;
 	}
 	y_len = cub->width - 1;
+	x_len = cub->height - 1;
 	x = skip_char(map[y_len], ' ');
 	while (map[y_len][x])
 	{

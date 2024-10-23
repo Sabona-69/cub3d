@@ -1,5 +1,5 @@
-C 47, 161, 228
-F 255,1, 1
+C 255, 255, 255
+F 1,1, 1
 
 EA textures/1.png
 WE textures/1.png

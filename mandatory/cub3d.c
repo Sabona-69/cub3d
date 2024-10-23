@@ -100,17 +100,20 @@ double	normalize_angle(double angle)
 	return (angle);
 }
 
-static void	turnright(t_game *game)
+static void	turn(t_game *game, int flag)
 {
-	game->player->direction += ROTATION_SPEED;
-	game->player->direction = normalize_angle(game->player->direction);
+	if (flag == 1)
+	{
+		game->player->direction += ROTATION_SPEED;
+		game->player->direction = normalize_angle(game->player->direction);
+	}
+	if (flag == 2)
+	{
+		game->player->direction -= ROTATION_SPEED;
+		game->player->direction = normalize_angle(game->player->direction);
+	}
 }
 
-static void	turnleft(t_game *game)
-{
-	game->player->direction -= ROTATION_SPEED;
-	game->player->direction = normalize_angle(game->player->direction);
-}
 
 int	is_wall(double x, double y, t_game *game)
 {
@@ -152,9 +155,9 @@ void	walk_player(t_game *game, double move_x, double move_y)
 void	movement(t_game *game, double move_x, double move_y)
 {
 	if (game->player->turn == TURN_RIGHT)
-		turnright(game);
+		turn(game, 1);
 	else if (game->player->turn == TURN_LEFT)
-		turnleft(game);
+		turn(game, 2);
 	if (game->player->walk == RIGHT)
 	{
 		move_x = -sin(game->player->direction) * MOVE_SPEED;
