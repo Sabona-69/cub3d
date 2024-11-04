@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"chrono": "c",
+		"unordered_map": "c",
+		"libft.h": "c",
+		"cub3d.h": "c"
+	}
+}
